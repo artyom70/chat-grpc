@@ -1,0 +1,29 @@
+"john" connected to server 
+"bob" connected to server 
+"alisa" connected to server 
+"john" user send message to user "max" 
+"john" user not found 
+"john" user send message to group "general" 
+"general" group doesn't exists 
+"john" user send message to user "alisa" 
+"john" user request to create group "general" 
+"john" user request to create group "general" and joined 
+"bob" user send message to group "general" 
+"bob" you are not group member "general" 
+"bob" user request to join group "general" 
+"bob" user joined group "general" 
+"bob" user send message to group "general" 
+"john" user send message to user "alisa" 
+"alisa" user send message to user "john" 
+user request list of channels 
+user request list of channels channels:{name:"john" type: USER} channels:{name:"bob" type: USER} channels:{name:"alisa" type: USER} channels:{name:"general" type:GROUP} 
+"john" user send message to group "general" 
+"bob" user send message to group "general" 
+"john" user request left group "general" 
+"john" user left from group "general" 
+"alisa" user request to join group "general" 
+"alisa" user joined group "general" 
+"bob" user send message to group "general" 
+"alisa" user disconnected 
+"bob" user disconnected 
+"john" user disconnected 

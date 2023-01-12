@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package chatserver;
+
+option go_package="chat-task/protos";
+
+import "google/protobuf/empty.proto";
+
+
+service Chat {
+    rpc Connect(ConnectRequest) returns (stream ReplayMessage) {}
+    rpc JoinGroupChat(JoinGroupChatRequest) returns (google.protobuf.Empty) {}
+    rpc LeftGroupChat(LeftGroupChatRequest) returns (google.protobuf.Empty) {}
+    rpc CreateGroupChat(CreateGroupChatRequest) returns (google.protobuf.Empty) {}
+    rpc SendMessage(SendMessageRequest) returns (google.protobuf.Empty) {}
+	rpc ListChannels(google.protobuf.Empty) returns (Channels) {}
+
+}
+
+message ConnectRequest {
+    string username = 1;
+}
+
+message JoinGroupChatRequest  {
+    string username = 1; 
+	string groupName = 2;
+}
+
+message LeftGroupChatRequest {
+    string username = 1; 
+	string groupName = 2;
+}
+
+message CreateGroupChatRequest {
+    string username = 1; 
+	string groupName = 2;
+}
+
+message SendMessageRequest {
+    string groupName = 1;
+    string username = 2;
+    string message = 3;
+    string toUsername = 4;
+}
+
+message ReplayMessage {
+    string username = 2;
+    string message = 3;
+}
+
+enum CHANNEL_TYPE{
+    USER = 0;
+    GROUP = 1;
+ }
+
+ message Channels {
+    repeated ChannelInfo channels = 1;
+ }
+
+ message ChannelInfo  {
+    string name = 1;
+    CHANNEL_TYPE type = 2;
+}
+
